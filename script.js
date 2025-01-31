@@ -26,7 +26,7 @@ function destroy(button, bunshou) {
     button.textContent = showcontent;
     console.log("閉じた");
     bunshou.classList.add("none");
-    bunshou.classList.renive("show");
+    bunshou.classList.remove("show");
 }
 hint1.addEventListener('click', () => yobidashi(hint1, bunshou1));
 hint2.addEventListener('click', () => yobidashi(hint2, bunshou2));
