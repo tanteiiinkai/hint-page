@@ -30,5 +30,5 @@ function destroy(button, bunshou) {
 }
 hint1.addEventListener('click', () => yobidashi(hint1, bunshou1));
 hint2.addEventListener('click', () => yobidashi(hint2, bunshou2));
-hint31.addEventListener('click', () => yobidashi(hint2, bunshou31));
-hint32.addEventListener('click', () => yobidashi(hint2, bunshou32));
+hint31.addEventListener('click', () => yobidashi(hint31, bunshou31));
+hint32.addEventListener('click', () => yobidashi(hint32, bunshou32));
