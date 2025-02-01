@@ -45,3 +45,7 @@ footer {
 .show {
         display: block;
 }
+.chuukoku {
+        color: red;
+        font-weight: bold;
+}
