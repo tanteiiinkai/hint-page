@@ -21,7 +21,7 @@ function display(button, bunshou) {
     console.log("おされた");
     bunshou.classList.add("show")
     bunshou.classList.remove("none");
-    setTimeout(destroy, 15000);
+    setTimeout(destroy(button, bunshou), 15000);
 }
 function destroy(button, bunshou) {
     button.textContent = showcontent;
