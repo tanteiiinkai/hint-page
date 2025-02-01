@@ -1,35 +1,32 @@
-const hint1 = document.querySelector('.i');
-const hint2 = document.querySelector('.ii');
-const hint31 = document.querySelector('.iii_i');
-const hint32 = document.querySelector('.iii_ii');
-const bunshou1 = document.querySelector('.I');
-const bunshou2 = document.querySelector('.II');
-const bunshou31 = document.querySelector('.III_I');
-const bunshou32 = document.querySelector('.III_II');
-var hidecontent = "▼ヒントを隠す";
-var showcontent = "▶ヒントを表示する";
-function yobidashi(button, bunshou) {
-    if (button.textContent === hidecontent) {
-        destroy(button, bunshou); 
-    } else {
-        display(button, bunshou);
+document.addEventListener("DOMContentLoaded", () => {
+    const hints = document.querySelectorAll(".hint");
+    const hideText = "▼ヒントを隠す";
+    const showText = "▶ ヒントを表示する";
+
+    hints.forEach(hint => {
+        hint.addEventListener("click", () => {
+            const targetId = hint.getAttribute("data-target");
+            const target = document.getElementById(targetId);
+
+            if (target.classList.contains("show")) {
+                hideHint(hint, target);
+            } else {
+                showHint(hint, target);
+            }
+        });
+    });
+
+    function showHint(button, hintBox) {
+        button.textContent = hideText;
+        hintBox.classList.add("show");
+        hintBox.classList.remove("none");
+
+        setTimeout(() => hideHint(button, hintBox), 15000);
     }
 
-}
-function display(button, bunshou) {
-    button.textContent = hidecontent;
-    console.log("おされた");
-    bunshou.classList.add("show")
-    bunshou.classList.remove("none");
-    setTimeout(destroy(button, bunshou), 15000);
-}
-function destroy(button, bunshou) {
-    button.textContent = showcontent;
-    console.log("閉じた");
-    bunshou.classList.add("none");
-    bunshou.classList.remove("show");
-}
-hint1.addEventListener('click', () => yobidashi(hint1, bunshou1));
-hint2.addEventListener('click', () => yobidashi(hint2, bunshou2));
-hint31.addEventListener('click', () => yobidashi(hint31, bunshou31));
-hint32.addEventListener('click', () => yobidashi(hint32, bunshou32));
+    function hideHint(button, hintBox) {
+        button.textContent = showText;
+        hintBox.classList.add("none");
+        hintBox.classList.remove("show");
+    }
+});
